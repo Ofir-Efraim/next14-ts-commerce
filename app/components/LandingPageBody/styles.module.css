@@ -1,0 +1,47 @@
+.title,
+.description {
+    direction: rtl;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 19px;
+}
+.link{
+    text-decoration: none;
+}
+.button {
+    background: #5e8749;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Mija', -apple-system, BlinkMacSystemFont, Roboto, "Roboto Slab", "Droid Serif", "Segoe UI", system-ui, Arial, sans-serif;
+    font-size: 1.15em;
+    font-weight: 700;
+    line-height: 33.4929px;
+    padding: 0.8em 1em;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+    transition: all 0.2s ease-in-out;
+    margin-top: -5px;
+}
+
+.button:active {
+    border-bottom-style: none;
+    border-color: #dadada;
+    box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+    outline: 0;
+}
+
+.button:hover {
+    border-bottom-style: none;
+    border-color: #72bf6a;
+    background: #72bf6a;
+}

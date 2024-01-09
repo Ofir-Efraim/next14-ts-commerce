@@ -1,13 +1,18 @@
 import React from "react";
 import styles from "./styles.module.css";
-import  CartIcon  from "@components/CartIcon/CartIcon";
+import CartIcon from "@components/CartIcon/CartIcon";
+import Image from "next/image";
+import logo from "@assets/logo.jpg";
+import Link from "next/link";
 export default function Header() {
   return (
     <div className={styles.header}>
-      <h2 className={styles.title}>Zechem</h2>
-      <div className={styles.cart}>
+      <Link href={"/cart"} className={styles.cart}>
         <CartIcon />
-      </div>
+      </Link>
+      <Link href={"/"} className={styles.logo}>
+        <Image src={logo} alt="system-logo" width={60} height={60} priority />
+      </Link>
     </div>
   );
 }
