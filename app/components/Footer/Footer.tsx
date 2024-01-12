@@ -7,6 +7,8 @@ export default function Footer() {
     <div className={styles.footerContainer}>
       <div className={styles.socialButtonsContainer}>
         <a
+          rel="noopener noreferrer"
+          target="_blank"
           className={`${styles.socialButton} ${styles.instagram}`}
           href={
             "https://instagram.com/zechem_glutenfreebread?igshid=YmMyMTA2M2Y="
@@ -15,12 +17,16 @@ export default function Footer() {
           <Instagram className={styles.instagramIcon} />
         </a>
         <a
+          rel="noopener noreferrer"
+          target="_blank"
           className={`${styles.socialButton} ${styles.facebook}`}
           href={"https://www.facebook.com/gil.efraim.37?mibextid=LQQJ4d"}
         >
           <Facebook className={styles.facebookIcon} />
         </a>
         <a
+          rel="noopener noreferrer"
+          target="_blank"
           className={`${styles.socialButton} ${styles.phone}`}
           href="tel:058-784-1711"
         >
