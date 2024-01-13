@@ -1,12 +1,15 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import styles from "./styles.module.css";
 import { ShoppingCart } from "@mui/icons-material";
 import { Badge } from "@mui/material";
+import { CartContext } from "@/app/CartContext";
 
 export default function CartIcon() {
+  const { cart } = useContext(CartContext);
   return (
     <Badge
-      badgeContent={5}
+      badgeContent={cart.totalItems}
       sx={{
         "& .MuiBadge-badge": {
           background: "#ed657d",

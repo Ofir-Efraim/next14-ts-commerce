@@ -1,26 +1,24 @@
 "use client";
 import { product } from "@types";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Drawer, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import { Info } from "@mui/icons-material";
 import Label from "@components/Products/Product/Label/Label";
+import { CartContext } from "@/app/CartContext";
 type productProps = {
   product: product;
 };
 export default function Product({ product }: productProps) {
+  const { addItem } = useContext(CartContext);
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleQuantityChange = (event: SelectChangeEvent<number>) => {
     setQuantity(Number(event.target.value));
   };
   const [isOpen, setIsOpen] = useState(false);
-  const handleOpenDrawer = async () => {
-    // await response for data here
-    setIsOpen(true);
-  };
   const anchor = "right"; // Specify the anchor position for the drawer
 
   const toggleDrawer =
@@ -31,6 +29,15 @@ export default function Product({ product }: productProps) {
 
       setIsOpen(open);
     };
+  const handleAddItem = () => {
+    addItem({
+      name: product.name,
+      id: product.id,
+      price: product.price,
+      picture: product.picture,
+      quantity: quantity,
+    });
+  };
   return (
     <>
       <Drawer
@@ -76,7 +83,10 @@ export default function Product({ product }: productProps) {
                   </MenuItem>
                 ))}
               </Select>
-              <AddShoppingCartOutlinedIcon className={styles.add} />
+              <AddShoppingCartOutlinedIcon
+                onClick={handleAddItem}
+                className={styles.add}
+              />
             </div>
           </div>
         </div>

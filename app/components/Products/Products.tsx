@@ -1,6 +1,6 @@
 import { product } from "@/app/types";
 import Product from "@components/Products/Product/Product";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./styles.module.css";
 type productsProps = {
   products: product[];
