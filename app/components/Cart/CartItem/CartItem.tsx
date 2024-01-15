@@ -35,7 +35,7 @@ export default function CartItem({ item }: cartItemProps) {
         <h3 className={styles.name}>{item.name}</h3>
       </div>
       <div className={styles.actionsAndPrice}>
-        <h4 className={styles.price}>₪ {item.price} </h4>
+        <h4 className={styles.price}>₪ {item.price * item.quantity} </h4>
         <button
           onClick={() => clearItem(item.id)}
           className={styles.removeContainer}
