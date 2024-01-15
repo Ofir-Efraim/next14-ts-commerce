@@ -1,0 +1,22 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (min-width: 960px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.cartItemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex: 1;
+  padding: 0 20px;
+}
+.cartDetailsContainer {
+  padding: 0 20px;
+  @media (min-width: 960px) {
+    margin-top: 20px;
+  }
+}

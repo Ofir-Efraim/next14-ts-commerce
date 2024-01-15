@@ -1,75 +1,74 @@
 .productContainer {
+  flex: 0 0 calc(50% - 10px);
+  position: relative;
+  box-shadow: 0 2px 7px #dfdfdf;
+  margin-top: 20px;
+  background: #ffffff;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  @media (min-width: 600px) {
     flex: 0 0 calc(50% - 10px);
-    position: relative;
-    box-shadow: 0 2px 7px #dfdfdf;
-    margin-top: 20px;
-    background: #fafafa;
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack children vertically */
+  }
 
-    @media (min-width: 600px) {
-        flex: 0 0 calc(50% - 10px);
-    }
+  @media (min-width: 960px) {
+    flex: 0 0 calc(33.33% - 10px);
+  }
 
-    @media (min-width: 960px) {
-        flex: 0 0 calc(33.33% - 10px);
-    }
-
-    @media (min-width: 1280px) {
-        flex: 0 0 calc(25% - 10px);
-    }
+  @media (min-width: 1280px) {
+    flex: 0 0 calc(25% - 10px);
+  }
 }
 
 .infoContainer {
-    direction: rtl;
-    padding: 10px;
-    position: relative;
-    flex-grow: 1; /* Take up remaining space */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  direction: rtl;
+  padding: 10px;
+  position: relative;
+  flex-grow: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.nameAndInfo{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.nameAndInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.info{
-    font-size: 24px;
+.info {
+  font-size: 24px;
 }
 .name {
-    font-weight: 700;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    color: #363636;
-    text-decoration: none;
-    transition: 0.3s;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  color: #363636;
+  text-decoration: none;
+  transition: 0.3s;
 }
 .description {
-    font-size: 15px;
-    line-height: 22px;
-    margin-bottom: 18px;
-    color: #999;
-    margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  margin-bottom: 18px;
+  color: #999;
+  margin: 0;
 }
-.actionsContainer{
-    display: flex;
-    flex-direction: column;
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
 }
 .quantity {
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center; 
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
 }
 
 .price {
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .add {
-    cursor: pointer;
-    margin-top: 5px;
+  cursor: pointer;
+  margin-top: 5px;
 }

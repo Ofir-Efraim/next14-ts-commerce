@@ -56,7 +56,7 @@ const data: product[] = [
     price: 20,
     picture:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D",
-    id: "2",
+    id: "3",
     nutritionalValues: {
       ingredients: ["כוסמת", "מלח", "פלפל"],
       servingSize: 100,
@@ -80,7 +80,7 @@ const data: product[] = [
     price: 20,
     picture:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D",
-    id: "2",
+    id: "4",
     nutritionalValues: {
       ingredients: ["כוסמת", "מלח", "פלפל"],
       servingSize: 100,
@@ -104,7 +104,7 @@ const data: product[] = [
     price: 20,
     picture:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D",
-    id: "2",
+    id: "5",
     nutritionalValues: {
       ingredients: ["כוסמת", "מלח", "פלפל"],
       servingSize: 100,
@@ -128,7 +128,7 @@ const data: product[] = [
     price: 20,
     picture:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D",
-    id: "2",
+    id: "6",
     nutritionalValues: {
       ingredients: ["כוסמת", "מלח", "פלפל"],
       servingSize: 100,
@@ -152,7 +152,7 @@ const data: product[] = [
     price: 20,
     picture:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D",
-    id: "2",
+    id: "7",
     nutritionalValues: {
       ingredients: ["כוסמת", "מלח", "פלפל"],
       servingSize: 100,

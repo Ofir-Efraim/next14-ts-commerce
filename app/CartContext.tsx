@@ -83,14 +83,17 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     });
   };
   const changeQuantity = (id: string, action: "plus" | "minus") => {
-    const updatedItems = cart.items.map((item) =>
-      item.id === id
-        ? {
-            ...item,
-            quantity: action === "plus" ? item.quantity + 1 : item.quantity - 1,
-          }
-        : item
-    );
+    const updatedItems = cart.items
+      .map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity:
+                action === "plus" ? item.quantity + 1 : item.quantity - 1,
+            }
+          : item
+      )
+      .filter((item) => item.quantity > 0); //Remove the item if new quantity is 0
 
     const updatedTotalItems = cart.totalItems + (action === "plus" ? 1 : -1);
     const updatedTotalPrice = cart.totalPrice;
