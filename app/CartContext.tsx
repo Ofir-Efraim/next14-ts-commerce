@@ -96,7 +96,12 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       .filter((item) => item.quantity > 0); //Remove the item if new quantity is 0
 
     const updatedTotalItems = cart.totalItems + (action === "plus" ? 1 : -1);
-    const updatedTotalPrice = cart.totalPrice;
+    // Calculate updated total price based on the updated items
+    const updatedTotalPrice = updatedItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    // to do update total price when item is removed
 
     return setCart({
       ...cart,

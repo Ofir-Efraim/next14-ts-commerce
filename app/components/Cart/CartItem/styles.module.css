@@ -16,11 +16,11 @@
   }
 
   @media (min-width: 960px) {
-    flex: 0 0 calc(33.33% - 10px);
+    flex: 0 0 100%;
   }
 
   @media (min-width: 1280px) {
-    flex: 0 0 calc(25% - 10px);
+    flex: 0 0 calc(50% - 10px);
   }
 }
 .nameAndQuantity {

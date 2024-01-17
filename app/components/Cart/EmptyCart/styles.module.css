@@ -1,0 +1,17 @@
+.emptyCartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+  @media (min-width: 960px) {
+    width: 50%;
+    margin-top: 20px;
+  }
+}
+.label {
+  font-size: 28px;
+  direction: rtl;
+  font-weight: 500;
+  color: #212529;
+}
