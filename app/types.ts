@@ -29,3 +29,18 @@ export type cart = {
   totalPrice: number;
   totalItems: number;
 };
+export type Customer = {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  pickupSpot?: string;
+  address?: {
+    country: string;
+    city: string;
+    street: string;
+    houseNumber: string;
+  };
+};
+
+export type OrderType = "delivery" | "pickup" | "";

@@ -1,38 +1,39 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { Facebook, Instagram, Smartphone } from "@mui/icons-material";
+import Image from "next/image";
+import instagram from "@assets/instagram.svg";
+import facebook from "@assets/facebook.svg";
+import phone from "@assets/phone.svg";
 
 export default function Footer() {
   return (
-    <div className={styles.footerContainer}>
+    <footer className={styles.footerContainer}>
       <div className={styles.socialButtonsContainer}>
         <a
           rel="noopener noreferrer"
           target="_blank"
           className={`${styles.socialButton} ${styles.instagram}`}
-          href={
-            "https://instagram.com/zechem_glutenfreebread?igshid=YmMyMTA2M2Y="
-          }
+          href="https://instagram.com/zechem_glutenfreebread?igshid=YmMyMTA2M2Y="
         >
-          <Instagram className={styles.instagramIcon} />
+          <Image width={28} height={28} src={instagram} alt="instagram" />
         </a>
         <a
           rel="noopener noreferrer"
           target="_blank"
           className={`${styles.socialButton} ${styles.facebook}`}
-          href={"https://www.facebook.com/gil.efraim.37?mibextid=LQQJ4d"}
+          href="https://www.facebook.com/gil.efraim.37?mibextid=LQQJ4d"
         >
-          <Facebook className={styles.facebookIcon} />
+          <Image width={28} height={28} src={facebook} alt="facebook" />
         </a>
         <a
           rel="noopener noreferrer"
           target="_blank"
           className={`${styles.socialButton} ${styles.phone}`}
-          href="tel:058-784-1711"
+          href="https://api.whatsapp.com/send?phone=972587841711&text&type=phone_number&app_absent=0"
         >
-          <Smartphone className={styles.phoneIcon} />
+          <Image width={28} height={28} src={phone} alt="phone" />
         </a>
       </div>
-    </div>
+    </footer>
   );
 }

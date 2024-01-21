@@ -24,7 +24,18 @@ export default function CartDetails() {
         <span className={styles.description}>מחיר כולל לתשלום</span>
       </div>
       <div className={styles.actions}>
-        <button className={styles.action}>המשך הזמנה</button>
+        <Link
+          style={{
+            textDecoration: "none",
+            textAlign: "center",
+            pointerEvents: cart.items.length === 0 ? "none" : "auto",
+            opacity: cart.items.length === 0 ? "0.6" : "1",
+          }}
+          className={styles.action}
+          href={"/checkout"}
+        >
+          המשך הזמנה
+        </Link>
         <Link
           style={{ textDecoration: "none", textAlign: "center" }}
           className={styles.action}
