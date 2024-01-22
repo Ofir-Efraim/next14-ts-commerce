@@ -1,0 +1,37 @@
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 80%;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px 16px 15px;
+  height: 56px;
+  position: relative;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 500;
+  background-color: white;
+  gap: 12px;
+  cursor: pointer;
+  margin: auto;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  -webkit-tap-highlight-color: transparent;
+  transition: box-shadow 0.2s ease, background-color 150ms ease;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.button:active {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  background-color: #f0f0f0;
+  transform: translateY(2px);
+  transition: box-shadow 0.2s ease, background-color 150ms ease,
+    transform 0.2s ease;
+}
