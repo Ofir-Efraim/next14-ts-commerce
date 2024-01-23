@@ -10,7 +10,7 @@ export default function CartDetails() {
     <div className={styles.detailsContainer}>
       <h2 className={styles.title}>סיכום פריטים</h2>
       {cart.items.map((item) => (
-        <div className={styles.item}>
+        <div key={item.id} className={styles.item}>
           <span className={styles.itemPrice}>
             ₪ {item.price * item.quantity}
           </span>

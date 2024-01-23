@@ -5,7 +5,7 @@ import { Customer, OrderType } from "@types";
 type CustomerContextData = {
   customer: Customer;
   orderType: OrderType;
-  setCustomer: (customer: Customer) => void;
+  setCustomer: (cb: (value: Customer) => Customer) => void;
   setOrderType: (orderType: OrderType) => void;
   initializeCustomerContext: () => void;
 };

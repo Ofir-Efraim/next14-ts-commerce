@@ -35,12 +35,7 @@ export type Customer = {
   phoneNumber: string;
   email: string;
   pickupSpot?: string;
-  address?: {
-    country: string;
-    city: string;
-    street: string;
-    houseNumber: string;
-  };
+  address?: string;
 };
 
 export type OrderType = "delivery" | "pickup" | "";
