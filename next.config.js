@@ -2,6 +2,9 @@
 const nextConfig = {
     images: {
         remotePatterns: [{
+            env: {
+                GooglePlacesApiKey: "test"
+            },
             protocol: 'https',
             hostname: 'images.unsplash.com',
         }, ],
