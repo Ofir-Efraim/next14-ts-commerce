@@ -5,12 +5,9 @@ import CheckoutForm from "@/app/components/CheckoutForm/CheckoutForm";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 export default function Home() {
-  const { setOrderType } = useContext(CustomerContext);
+  const { orderType } = useContext(CustomerContext);
   const { cart } = useContext(CartContext);
   const router = useRouter();
-  useEffect(() => {
-    setOrderType("pickup");
-  }, []);
   useEffect(() => {
     if (cart.items.length === 0) {
       if (typeof window !== "undefined") {
@@ -25,7 +22,7 @@ export default function Home() {
           עגלה ריקה, עובר למוצרים ...
         </p>
       ) : (
-        <CheckoutForm />
+        <>{orderType}</>
       )}
     </main>
   );

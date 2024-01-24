@@ -1,11 +1,11 @@
 "use client";
 import { CartContext } from "@/app/CartContext";
 import { CustomerContext } from "@/app/CustomerContext";
-import DeliveryForm from "@/app/components/DeliveryForm/DeliveryForm";
+import CheckoutForm from "@/app/components/CheckoutForm/CheckoutForm";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 export default function Home() {
-  const { orderType, setOrderType } = useContext(CustomerContext);
+  const { setOrderType } = useContext(CustomerContext);
   const { cart } = useContext(CartContext);
   const router = useRouter();
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function Home() {
           עגלה ריקה, עובר למוצרים ...
         </p>
       ) : (
-        <DeliveryForm />
+        <CheckoutForm />
       )}
     </main>
   );
