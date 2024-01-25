@@ -1,0 +1,79 @@
+.detailsContainer {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #edebeb;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+}
+
+.title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    color: #212529;
+    direction: rtl;
+}
+
+.totalPrice,
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description,
+.x {
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
+    direction: rtl;
+}
+
+.itemDescription {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
+    direction: rtl;
+}
+
+.amount,
+.itemPrice {
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
+}
+
+.button {
+    padding: 15px 50px;
+    text-align: center;
+    direction: rtl;
+    width: auto;
+    margin-top: 10px;
+    background: #1abc9c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    clear: right;
+    -webkit-transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -ms-transition: 0.2s ease all;
+    -o-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.button:active {
+    opacity: 0.4;
+}
