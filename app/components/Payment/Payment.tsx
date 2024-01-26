@@ -31,7 +31,13 @@ export default function Payment() {
             className={`${styles.paymentButton} ${styles.bit}`}
             href="https://www.bitpay.co.il/app/me/69025DC7-9D1E-44C4-4CD0-5FC07D13951BFB60"
           >
-            <Image width={72} height={72} src={bit} alt="bit" />
+            <Image
+              title="058-784-1713"
+              width={72}
+              height={72}
+              src={bit}
+              alt="bit"
+            />
           </a>
           <a
             rel="noopener noreferrer"
@@ -46,4 +52,3 @@ export default function Payment() {
     </div>
   );
 }
-// 058-7841713
