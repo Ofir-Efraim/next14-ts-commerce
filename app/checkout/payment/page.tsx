@@ -1,5 +1,6 @@
 "use client";
 import { CartContext } from "@/app/CartContext";
+import Payment from "@/app/components/Payment/Payment";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
           עגלה ריקה, עובר למוצרים ...
         </p>
       ) : (
-        <></>
+        <Payment />
       )}
     </main>
   );

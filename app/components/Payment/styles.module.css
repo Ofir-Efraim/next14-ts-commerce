@@ -1,0 +1,47 @@
+.paymentContainer {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #edebeb;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  text-align: right;
+  direction: rtl;
+}
+.message,
+.location,
+.price,
+.optionsMessage {
+  margin: 0;
+  padding: 0;
+}
+.payment{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.paymentOptions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.message{
+  font-size: 20px;
+  font-weight: 400;
+}
+.location{
+  font-size: 20px;
+  font-weight: 400;
+}
+.price{
+  font-size: 20px;
+  font-weight: 400;
+}
+.optionsMessage{
+  font-size: 20px;
+  font-weight: 400;
+}

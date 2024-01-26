@@ -2,12 +2,16 @@
 import React, { useContext } from "react";
 import styles from "./styles.module.css";
 import { CartContext } from "@/app/CartContext";
-import Link from "next/link";
 import { Close } from "@mui/icons-material";
 import { CustomerContext } from "@/app/CustomerContext";
+import { useRouter } from "next/navigation";
 export default function OrderSummary() {
   const { cart } = useContext(CartContext);
   const { orderType } = useContext(CustomerContext);
+  const router = useRouter();
+  const handleOrder = () => {
+    router.push("/checkout/payment");
+  };
   return (
     <div className={styles.detailsContainer}>
       <h2 className={styles.title}>סיכום פריטים</h2>
@@ -33,13 +37,13 @@ export default function OrderSummary() {
         </span>
         <span className={styles.description}>מחיר כולל לתשלום</span>
       </div>
-      <Link
+      <button
         style={{ textDecoration: "none", textAlign: "center" }}
         className={styles.button}
-        href={"/checkout/payment"}
+        onClick={handleOrder}
       >
         בצע הזמנה
-      </Link>
+      </button>
     </div>
   );
 }
