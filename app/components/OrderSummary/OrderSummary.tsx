@@ -5,11 +5,19 @@ import { CartContext } from "@/app/CartContext";
 import { Close } from "@mui/icons-material";
 import { CustomerContext } from "@/app/CustomerContext";
 import { useRouter } from "next/navigation";
+import { submitOrder } from "@/app/api";
 export default function OrderSummary() {
   const { cart } = useContext(CartContext);
-  const { orderType } = useContext(CustomerContext);
+  const { orderType, customer } = useContext(CustomerContext);
   const router = useRouter();
-  const handleOrder = () => {
+  const handleOrder = async () => {
+    const order = {
+      ...customer,
+      products: cart.items,
+      totalPrice:
+        orderType === "delivery" ? cart.totalPrice + 10 : cart.totalPrice,
+    };
+    await submitOrder(order);
     router.push("/checkout/payment");
   };
   return (

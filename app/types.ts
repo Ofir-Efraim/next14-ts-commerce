@@ -39,3 +39,23 @@ export type Customer = {
 };
 
 export type OrderType = "delivery" | "pickup" | "";
+export type location = {
+  name: string;
+  id: string;
+};
+export type orderItem = Omit<
+  product,
+  "nutritionalValues" | "description"
+> & {
+  quantity: number;
+};
+export type order = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  totalPrice: number;
+  pickupSpot?: string;
+  deliveryAddress?: string;
+  products: orderItem[];
+};

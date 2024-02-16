@@ -40,13 +40,13 @@ export default function Label({ nutritionalValues }: labelProps) {
         <li>
           <span>
             <span className={styles.factsLabel}>כולסטרול</span>{" "}
-            {nutritionalValues.cholesterol}mg
+            {nutritionalValues.cholesterol} מיליגרם
           </span>
         </li>
         <li>
           <span>
             <span className={styles.factsLabel}>נתרן</span>{" "}
-            {nutritionalValues.sodium}mg
+            {nutritionalValues.sodium} מיליגרם
           </span>
         </li>
         <li>

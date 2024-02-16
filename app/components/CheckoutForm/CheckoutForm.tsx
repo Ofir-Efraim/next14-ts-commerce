@@ -1,11 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { CustomerContext } from "@/app/CustomerContext";
 import ReactGoogleAutocomplete from "react-google-autocomplete";
-import { Customer } from "@/app/types";
+import { Customer, location } from "@/app/types";
 import { useRouter } from "next/navigation";
-const locations = ["בדיקה 1", "בדיקה 2", "בדיקה 3"];
+import { getLocations } from "@/app/api";
 export default function CheckoutForm() {
+  const [locations, setLocations] = useState<location[]>([]);
+  const fetchLocations = async () => {
+    const res = await getLocations();
+    setLocations(res.data.locations);
+  };
+  useEffect(() => {
+    fetchLocations();
+  }, []);
   const router = useRouter();
   const { customer, setCustomer, orderType } = useContext(CustomerContext);
   const [formError, setFormError] = useState<string | null>(null);
@@ -131,9 +139,9 @@ export default function CheckoutForm() {
             <option value="" disabled hidden>
               בחר נקודת איסוף
             </option>
-            {locations.map((location, index) => (
-              <option key={index} value={location}>
-                {location}
+            {locations.map((location) => (
+              <option key={location.id} value={location.name}>
+                {location.name}
               </option>
             ))}
           </select>
