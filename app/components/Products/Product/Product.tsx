@@ -54,13 +54,16 @@ export default function Product({ product }: productProps) {
         <Label nutritionalValues={product.nutritionalValues} />
       </Drawer>
       <div className={styles.productContainer}>
-        <Image
-          src={product.picture}
-          alt={product.name}
-          width={100}
-          height={100}
-          layout="responsive"
-        />
+        <div style={{ width: "100%", height: "200px", position: "relative" }}>
+          <Image
+            src={product.picture}
+            alt={product.name}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            style={{ position: "absolute", width: "100%", height: "100%" }}
+          />
+        </div>
         <div className={styles.infoContainer}>
           <div className={styles.textContainer}>
             <div className={styles.nameAndInfo}>

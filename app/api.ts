@@ -3,7 +3,7 @@ import { order } from "./types";
 
 const server = process.env.SERVER_ENDPOINT;
 export const getProducts = async () => {
-  return axios.get(server + "/get_products");
+  return axios.get(server + "/get_active_products");
 };
 export const getLocations = async () => {
   return axios.get(server + "/get_locations");
