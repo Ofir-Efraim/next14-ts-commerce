@@ -13,13 +13,16 @@ export default function CartItem({ item }: cartItemProps) {
   const { clearItem, changeQuantity } = useContext(CartContext);
   return (
     <div className={styles.itemContainer}>
-      <Image
-        src={item.picture}
-        alt={item.name}
-        width={100}
-        height={100}
-        layout="responsive"
-      />
+      <div style={{ width: "100%", height: "200px", position: "relative" }}>
+          <Image
+            src={item.picture}
+            alt={item.name}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            style={{ position: "absolute", width: "100%", height: "100%" }}
+          />
+        </div>
       <div className={styles.nameAndQuantity}>
         <div className={styles.quantity}>
           <Add
