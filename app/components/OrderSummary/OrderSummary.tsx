@@ -6,6 +6,7 @@ import { Close } from "@mui/icons-material";
 import { CustomerContext } from "@/app/CustomerContext";
 import { useRouter } from "next/navigation";
 import { submitOrder } from "@/app/api";
+import { AxiosError } from "axios";
 export default function OrderSummary() {
   const { cart } = useContext(CartContext);
   const { orderType, customer } = useContext(CustomerContext);
@@ -17,8 +18,12 @@ export default function OrderSummary() {
       totalPrice:
         orderType === "delivery" ? cart.totalPrice + 10 : cart.totalPrice,
     };
-    await submitOrder(order);
-    router.push("/checkout/payment");
+    try {
+      const response = await submitOrder(order);
+      router.push("/checkout/payment");
+    } catch (error : AxiosError | any) {
+      alert(error.response.data.error);
+    }
   };
   return (
     <div className={styles.detailsContainer}>
