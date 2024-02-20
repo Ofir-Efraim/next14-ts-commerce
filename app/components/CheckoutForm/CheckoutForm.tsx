@@ -136,11 +136,15 @@ export default function CheckoutForm() {
             onChange={handleSelectChange}
             required
           >
-            <option value="" disabled hidden>
+            <option className={styles.input} value="" disabled hidden>
               בחר נקודת איסוף
             </option>
             {locations.map((location) => (
-              <option key={location.id} value={location.name}>
+              <option
+                className={styles.input}
+                key={location.id}
+                value={location.name}
+              >
                 {location.name}
               </option>
             ))}
