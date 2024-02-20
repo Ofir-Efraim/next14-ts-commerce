@@ -109,20 +109,21 @@ export default function CheckoutForm() {
           <label htmlFor="address" className={styles.label}>
             כתובת משלוח
           </label>
-          <ReactGoogleAutocomplete
-            className={styles.input}
-            onChange={handleInputChange}
-            id="address"
-            defaultValue={customer.address ? customer.address : ""}
-            apiKey={process.env.GOOGLE_API_KEY}
-            onPlaceSelected={handleAddressSelect}
-            options={{
-              types: ["address"],
-              componentRestrictions: { country: "il" },
-            }}
-            language="he"
-            required
-          />
+          <div className={styles.input}>
+            <ReactGoogleAutocomplete
+              onChange={handleInputChange}
+              id="address"
+              defaultValue={customer.address ? customer.address : ""}
+              apiKey={process.env.GOOGLE_API_KEY}
+              onPlaceSelected={handleAddressSelect}
+              options={{
+                types: ["address"],
+                componentRestrictions: { country: "il" },
+              }}
+              language="he"
+              required
+            />
+          </div>
         </>
       ) : (
         <>
