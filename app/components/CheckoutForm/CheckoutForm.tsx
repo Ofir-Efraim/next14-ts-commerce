@@ -114,7 +114,7 @@ export default function CheckoutForm() {
             onChange={handleInputChange}
             id="address"
             defaultValue={customer.address ? customer.address : ""}
-            apiKey={process.env.GooglePlacesApiKey}
+            apiKey={process.env.GOOGLE_API_KEY}
             onPlaceSelected={handleAddressSelect}
             options={{
               types: ["address"],
