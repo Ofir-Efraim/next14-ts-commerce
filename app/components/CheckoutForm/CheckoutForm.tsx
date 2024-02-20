@@ -129,26 +129,23 @@ export default function CheckoutForm() {
           <label htmlFor="pickupSpot" className={styles.label}>
             נקודת איסוף
           </label>
-          <select
-            className={styles.input}
-            id="pickupSpot"
-            value={customer.pickupSpot ? customer.pickupSpot : ""}
-            onChange={handleSelectChange}
-            required
-          >
-            <option className={styles.input} value="" disabled hidden>
-              בחר נקודת איסוף
-            </option>
-            {locations.map((location) => (
-              <option
-                className={styles.input}
-                key={location.id}
-                value={location.name}
-              >
-                {location.name}
+          <div className={styles.input}>
+            <select
+              id="pickupSpot"
+              value={customer.pickupSpot ? customer.pickupSpot : ""}
+              onChange={handleSelectChange}
+              required
+            >
+              <option value="" disabled hidden>
+                בחר נקודת איסוף
               </option>
-            ))}
-          </select>
+              {locations.map((location) => (
+                <option key={location.id} value={location.name}>
+                  {location.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </>
       )}
 
