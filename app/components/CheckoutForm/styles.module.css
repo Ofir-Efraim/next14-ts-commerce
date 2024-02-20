@@ -25,6 +25,8 @@
     transition: 0.2s ease all;
     appearance: none;
     -webkit-appearance: none;
+    background-color: #fff;
+    color: #a9a9a9;
 }
 
 .input:focus {
