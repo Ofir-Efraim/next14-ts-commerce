@@ -25,10 +25,18 @@ export default function Home() {
       ) : (
         <div className={styles.checkoutContainer}>
           <div className={styles.buttonsContainer}>
-            <Link className={styles.link} href={"/checkout/delivery"}>
+            <Link
+              color="#000"
+              className={styles.link}
+              href={"/checkout/delivery"}
+            >
               <CheckoutButton text="משלוח" Icon={DeliveryDining} />
             </Link>
-            <Link className={styles.link} href={"/checkout/pickup"}>
+            <Link
+              color="#000"
+              className={styles.link}
+              href={"/checkout/pickup"}
+            >
               <CheckoutButton text="איסוף עצמי" Icon={TakeoutDining} />
             </Link>
           </div>
