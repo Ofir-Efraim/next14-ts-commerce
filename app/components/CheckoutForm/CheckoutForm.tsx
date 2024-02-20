@@ -131,6 +131,7 @@ export default function CheckoutForm() {
           </label>
           <div className={styles.input}>
             <select
+              style={{border:"none"}}
               id="pickupSpot"
               value={customer.pickupSpot ? customer.pickupSpot : ""}
               onChange={handleSelectChange}
