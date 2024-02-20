@@ -1,27 +1,24 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./styles.module.css";
-import { CartContext } from "@/app/CartContext";
-import { CustomerContext } from "@/app/CustomerContext";
 import bit from "@assets/bit_logo.jpeg";
 import paybox from "@assets/paybox_logo.png";
 import Image from "next/image";
-export default function Payment() {
-  const { cart } = useContext(CartContext);
-  const { customer, orderType } = useContext(CustomerContext);
+import { order } from "@/app/types";
+type paymentProps = {
+  order: order | null;
+};
+export default function Payment({ order }: paymentProps) {
   return (
     <div className={styles.paymentContainer}>
       <h2 className={styles.message}>תודה רבה על שבחרת בצחם</h2>
       <h3 className={styles.location}>
-        {orderType === "delivery" ? (
-          <>הזמנתך תגיע לכתובת {customer.address}</>
+        {order?.address ? (
+          <>הזמנתך תגיע לכתובת {order.address}</>
         ) : (
-          <>הזמנתך תחכה לך ב{customer.pickupSpot}</>
+          <>הזמנתך תחכה לך ב{order?.pickupSpot}</>
         )}
       </h3>
-      <p className={styles.price}>
-        הזמנתך היא על סך ₪
-        {orderType === "delivery" ? cart.totalPrice + 10 : cart.totalPrice}
-      </p>
+      <p className={styles.price}>הזמנתך היא על סך ₪{order?.totalPrice}</p>
       <div className={styles.payment}>
         <h3 className={styles.optionsMessage}>לתשלום בביט או בפייבוקס</h3>
         <div className={styles.paymentOptions}>

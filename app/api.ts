@@ -11,3 +11,6 @@ export const getLocations = async () => {
 export const submitOrder = async (order: order) => {
   return axios.post(server + "/submit_order", { order });
 };
+export const getOrder = async (orderId: string) => {
+  return axios.get(server + `/get_order/${orderId}`);
+};

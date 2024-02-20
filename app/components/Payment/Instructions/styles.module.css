@@ -1,0 +1,20 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: right;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text {
+    font-size: 16px;
+    font-weight: 600;
+    direction: rtl;
+    text-align: right;
+    line-height: 1.4;
+    padding-left: 50px;
+  }

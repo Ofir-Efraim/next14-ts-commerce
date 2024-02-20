@@ -9,7 +9,7 @@ import { AxiosError } from "axios";
 import Loader from "../Loader/Loader";
 
 export default function OrderSummary() {
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const { orderType, customer } = useContext(CustomerContext);
   const router = useRouter();
   const [loading, setLoading] = useState(false); // State to manage loading state
@@ -24,7 +24,9 @@ export default function OrderSummary() {
     };
     try {
       const response = await submitOrder(order);
-      router.push("/checkout/payment");
+      const order_id = response.data.order_id;
+      router.push(`/checkout/payment/${order_id}`);
+      // clearCart();
     } catch (error: AxiosError | any) {
       alert(error.response.data.error);
     } finally {

@@ -87,6 +87,7 @@ export default function Product({ product }: productProps) {
                 ))}
               </Select>
               <AddShoppingCartOutlinedIcon
+              titleAccess="הוסף לעגלה"
                 onClick={handleAddItem}
                 className={styles.add}
               />

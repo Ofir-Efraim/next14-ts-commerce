@@ -43,10 +43,7 @@ export type location = {
   name: string;
   id: string;
 };
-export type orderItem = Omit<
-  product,
-  "nutritionalValues" | "description"
-> & {
+export type orderItem = Omit<product, "nutritionalValues" | "description"> & {
   quantity: number;
 };
 export type order = {
@@ -57,5 +54,6 @@ export type order = {
   totalPrice: number;
   pickupSpot?: string;
   deliveryAddress?: string;
+  address?: string;
   products: orderItem[];
 };
