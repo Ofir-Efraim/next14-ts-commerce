@@ -61,7 +61,7 @@ export default function CheckoutForm() {
       </label>
       <input
         className={styles.input}
-        placeholder="הכנס שם פרטי..."
+        placeholder="הכנס שם פרטי"
         type="text"
         id="firstName"
         value={customer.firstName}
@@ -73,7 +73,7 @@ export default function CheckoutForm() {
       </label>
       <input
         className={styles.input}
-        placeholder="הכנס שם משפחה..."
+        placeholder="הכנס שם משפחה"
         type="text"
         id="lastName"
         value={customer.lastName}
@@ -85,7 +85,7 @@ export default function CheckoutForm() {
       </label>
       <input
         className={styles.input}
-        placeholder="הכנס מספר טלפון..."
+        placeholder="הכנס מספר טלפון"
         type="tel"
         id="phoneNumber"
         value={customer.phoneNumber}
@@ -97,7 +97,7 @@ export default function CheckoutForm() {
       </label>
       <input
         className={styles.input}
-        placeholder="הכנס כתובת מייל..."
+        placeholder="הכנס כתובת מייל"
         type="email"
         id="email"
         value={customer.email}
