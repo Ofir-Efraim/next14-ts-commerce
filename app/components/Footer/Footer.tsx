@@ -29,7 +29,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           target="_blank"
           className={`${styles.socialButton} ${styles.phone}`}
-          href="https://api.whatsapp.com/send?phone=972587841711&text&type=phone_number&app_absent=0"
+          href="https://api.whatsapp.com/send?phone=972508489501&text&type=phone_number&app_absent=0"
         >
           <Image width={28} height={28} src={phone} alt="phone" />
         </a>

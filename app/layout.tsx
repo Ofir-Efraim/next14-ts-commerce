@@ -10,8 +10,8 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Zechem",
-  description: "Zechem gluten free bread",
+  title: "צחם",
+  description: "צחם - לחם בריאות מצמחים",
 };
 
 export default function RootLayout({
