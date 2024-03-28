@@ -20,7 +20,7 @@ export default function OrderSummary() {
       ...customer,
       products: cart.items,
       totalPrice:
-        orderType === "delivery" ? cart.totalPrice + 10 : cart.totalPrice,
+        orderType === "delivery" ? cart.totalPrice + 25 : cart.totalPrice,
     };
     try {
       const response = await submitOrder(order);
@@ -49,13 +49,13 @@ export default function OrderSummary() {
       ))}
       {orderType === "delivery" && (
         <div className={styles.item}>
-          <span className={styles.itemPrice}>₪ 10</span>
+          <span className={styles.itemPrice}>₪ 25</span>
           <span className={styles.itemDescription}>תוספת משלוח</span>
         </div>
       )}
       <div className={styles.totalPrice}>
         <span className={styles.amount}>
-          ₪ {orderType === "delivery" ? cart.totalPrice + 10 : cart.totalPrice}
+          ₪ {orderType === "delivery" ? cart.totalPrice + 25 : cart.totalPrice}
         </span>
         <span className={styles.description}>מחיר כולל לתשלום</span>
       </div>
