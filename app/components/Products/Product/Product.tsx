@@ -68,7 +68,7 @@ export default function Product({ product }: productProps) {
           <div className={styles.textContainer}>
             <div className={styles.nameAndInfo}>
               <h4 className={styles.name}>{product.name}</h4>
-              <Info onClick={() => setIsOpen(true)} className={styles.info} />
+              {/* <Info onClick={() => setIsOpen(true)} className={styles.info} /> */}
             </div>
             <p className={styles.description}>{product.description}</p>
           </div>
