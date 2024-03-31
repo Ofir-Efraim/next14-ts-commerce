@@ -21,6 +21,7 @@ export default function OrderSummary() {
       products: cart.items,
       totalPrice:
         orderType === "delivery" ? cart.totalPrice + 25 : cart.totalPrice,
+      status: "new",
     };
     try {
       const response = await submitOrder(order);

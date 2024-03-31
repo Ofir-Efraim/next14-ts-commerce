@@ -39,6 +39,7 @@ export type Customer = {
 };
 
 export type OrderType = "delivery" | "pickup" | "";
+
 export type location = {
   name: string;
   id: string;
@@ -56,4 +57,5 @@ export type order = {
   deliveryAddress?: string;
   address?: string;
   products: orderItem[];
+  status: string;
 };
