@@ -3,6 +3,9 @@ import { product } from "@types";
 import Products from "@components/Products/Products";
 import { useEffect, useState } from "react";
 import { getProducts } from "../api";
+import CartIcon from "../components/CartIcon/CartIcon";
+import Link from "next/link";
+import styles from "./styles.module.css";
 
 export default function Home() {
   const [products, setProducts] = useState<product[]>([]);
@@ -15,7 +18,19 @@ export default function Home() {
   }, []);
   return (
     <main>
-      <Products products={products} />
+      {products.length > 0 && (
+        <>
+          <Products products={products} />
+          <div className={styles.stickyContainer}>
+            <Link href="/cart" className={styles.cart}>
+              <>
+                <CartIcon />
+                <span>מעבר לעגלה</span>
+              </>
+            </Link>
+          </div>
+        </>
+      )}
     </main>
   );
 }

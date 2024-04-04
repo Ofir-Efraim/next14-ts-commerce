@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
 }
-.quantity {
+.quantityContainer {
   overflow: hidden;
   display: flex;
   justify-content: space-between;
@@ -68,7 +68,22 @@
   font-weight: 600;
 }
 
-.add {
+.quantity {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 10px;
+}
+
+.add,
+.decrease {
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 2px;
+  transition: color 0.3s ease;
+}
+
+.add:hover {
+  color: #4caf50;
+}
+.decrease:hover {
+  color: crimson;
 }

@@ -4,20 +4,21 @@ import React, { useContext, useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { Drawer, MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
-import { Info } from "@mui/icons-material";
+import { AddCircle, Info, RemoveCircle } from "@mui/icons-material";
 import Label from "@components/Products/Product/Label/Label";
 import { CartContext } from "@/app/CartContext";
 type productProps = {
   product: product;
 };
 export default function Product({ product }: productProps) {
-  const { addItem } = useContext(CartContext);
-  const [quantity, setQuantity] = useState<number>(1);
+  const { addItem, changeQuantity, cart } = useContext(CartContext);
 
-  const handleQuantityChange = (event: SelectChangeEvent<number>) => {
-    setQuantity(Number(event.target.value));
-  };
+  // Find the item with the matching ID
+  const cartItem = cart.items.find((item) => item.id === product.id);
+
+  // If the item exists, display its quantity
+  const quantity = cartItem ? cartItem.quantity : 0;
+
   const [isOpen, setIsOpen] = useState(false);
   const anchor = "right"; // Specify the anchor position for the drawer
 
@@ -35,8 +36,13 @@ export default function Product({ product }: productProps) {
       id: product.id,
       price: product.price,
       picture: product.picture,
-      quantity: quantity,
+      quantity: 1,
     });
+  };
+  const handleDecreaseItem = () => {
+    if (quantity > 0) {
+      changeQuantity(product.id, "minus");
+    }
   };
   return (
     <>
@@ -74,22 +80,17 @@ export default function Product({ product }: productProps) {
           </div>
           <div className={styles.actionsContainer}>
             <p className={styles.price}>{product.price} ₪</p>
-            <div className={styles.quantity}>
-              <Select
-                value={quantity}
-                onChange={handleQuantityChange}
-                size="small"
-              >
-                {[...Array(10)].map((number, index) => (
-                  <MenuItem key={index + 1} value={index + 1}>
-                    {index + 1}
-                  </MenuItem>
-                ))}
-              </Select>
-              <AddShoppingCartOutlinedIcon
-              titleAccess="הוסף לעגלה"
+            <div className={styles.quantityContainer}>
+              <AddCircle
+                titleAccess="הוסף לעגלה"
                 onClick={handleAddItem}
                 className={styles.add}
+              />
+              <p className={styles.quantity}>{quantity}</p>
+              <RemoveCircle
+                titleAccess="הורד מהעגלה"
+                onClick={handleDecreaseItem}
+                className={styles.decrease}
               />
             </div>
           </div>
