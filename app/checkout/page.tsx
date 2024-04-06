@@ -37,7 +37,7 @@ export default function Home() {
               className={styles.link}
               href={"/checkout/pickup"}
             >
-              <CheckoutButton text="איסוף עצמי" Icon={TakeoutDining} />
+              <CheckoutButton text="איסוף עצמי \ בחר נקודת איסוף" Icon={TakeoutDining} />
             </Link>
           </div>
         </div>
