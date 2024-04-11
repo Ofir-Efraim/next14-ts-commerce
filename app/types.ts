@@ -58,4 +58,5 @@ export type order = {
   address?: string;
   products: orderItem[];
   status: string;
+  paid : boolean;
 };
