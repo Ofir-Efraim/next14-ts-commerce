@@ -22,6 +22,7 @@ export default function OrderSummary() {
       totalPrice:
         orderType === "delivery" ? cart.totalPrice + 25 : cart.totalPrice,
       status: "new",
+      bagged: false,
       paid: false,
     };
     try {

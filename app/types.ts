@@ -58,5 +58,6 @@ export type order = {
   address?: string;
   products: orderItem[];
   status: string;
+  bagged : boolean;
   paid : boolean;
 };
