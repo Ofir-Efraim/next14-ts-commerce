@@ -20,7 +20,9 @@ export default function Payment({ order }: paymentProps) {
       </h3>
       <p className={styles.price}>הזמנתך היא על סך ₪{order?.totalPrice}</p>
       <div className={styles.payment}>
-        <h3 className={styles.optionsMessage}>לתשלום בביט או בפייבוקס</h3>
+        <h3 className={styles.optionsMessage}>
+          לתשלום בביט או בפייבוקס ניתן ללחוץ על האייקונים הבאים
+        </h3>
         <div className={styles.paymentOptions}>
           <a
             rel="noopener noreferrer"
