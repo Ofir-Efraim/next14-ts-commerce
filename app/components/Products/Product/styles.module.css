@@ -79,6 +79,7 @@
   cursor: pointer;
   margin-top: 2px;
   transition: color 0.3s ease;
+  font-size: 1.5rem;
 }
 
 .add:hover {

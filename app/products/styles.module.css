@@ -14,7 +14,18 @@
   justify-content: center;
   text-decoration: none;
   gap: 20px;
-  color: #333; /* Dark grey */
-  font-size: 20px;
+  background: #5e8749;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Mija", -apple-system, BlinkMacSystemFont, Roboto, "Roboto Slab",
+    "Droid Serif", "Segoe UI", system-ui, Arial, sans-serif;
+  font-size: 1.15em;
   font-weight: 400;
+  line-height: 33.4929px;
+  padding: 0.8em 1em;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 1px;
+  transition: all 0.2s ease-in-out;
+  margin-top: -5px;
 }

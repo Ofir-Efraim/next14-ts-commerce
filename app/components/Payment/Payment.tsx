@@ -20,7 +20,9 @@ export default function Payment({ order }: paymentProps) {
       </h3>
       <p className={styles.price}>הזמנתך היא על סך ₪{order?.totalPrice}</p>
       <div className={styles.payment}>
-        <h3 className={styles.optionsMessage}>לתשלום בביט או בפייבוקס</h3>
+        <h3 className={styles.optionsMessage}>
+          לתשלום בביט או בפייבוקס ניתן ללחוץ על האייקונים הבאים
+        </h3>
         <div className={styles.paymentOptions}>
           <a
             rel="noopener noreferrer"
@@ -40,7 +42,7 @@ export default function Payment({ order }: paymentProps) {
             rel="noopener noreferrer"
             target="_blank"
             className={`${styles.paymentButton} ${styles.paybox}`}
-            href="https://payboxapp.page.link/sRTLTxrerr2btZjs9"
+            href="https://payboxapp.page.link/BCFJipPAWaTuWBFo7"
           >
             <Image width={54} height={54} src={paybox} alt="paybox" />
           </a>

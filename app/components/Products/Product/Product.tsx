@@ -82,12 +82,14 @@ export default function Product({ product }: productProps) {
             <p className={styles.price}>{product.price} ₪</p>
             <div className={styles.quantityContainer}>
               <AddCircle
+                color="success"
                 titleAccess="הוסף לעגלה"
                 onClick={handleAddItem}
                 className={styles.add}
               />
               <p className={styles.quantity}>{quantity}</p>
               <RemoveCircle
+                color="error"
                 titleAccess="הורד מהעגלה"
                 onClick={handleDecreaseItem}
                 className={styles.decrease}
