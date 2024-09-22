@@ -28,7 +28,7 @@ export default function Payment({ order }: paymentProps) {
             rel="noopener noreferrer"
             target="_blank"
             className={`${styles.paymentButton} ${styles.bit}`}
-            href="https://www.bitpay.co.il/app/me/69025DC7-9D1E-44C4-4CD0-5FC07D13951BFB60"
+            href="https://www.bitpay.co.il/app/me/A3F1EF64-310A-BF72-D7AD-FAC8BF9649E6E77C"
           >
             <Image
               title="058-784-1713"
