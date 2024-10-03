@@ -4,36 +4,63 @@ import { CartContext } from "@/app/CartContext";
 import { Close } from "@mui/icons-material";
 import { CustomerContext } from "@/app/CustomerContext";
 import { useRouter } from "next/navigation";
-import { submitOrder } from "@/app/api";
+import { submitOrder, is_coupon_code_valid } from "@/app/api"; // Import the function
 import { AxiosError } from "axios";
 import Loader from "../Loader/Loader";
 
 export default function OrderSummary() {
   const { cart, clearCart } = useContext(CartContext);
-  const { orderType, customer } = useContext(CustomerContext);
+  const { orderType, customer, discountPercentage, setDiscountPercentage } =
+    useContext(CustomerContext);
   const router = useRouter();
-  const [loading, setLoading] = useState(false); // State to manage loading state
+  const [loading, setLoading] = useState(false);
+  const [couponCode, setCouponCode] = useState(""); // State for coupon code
+  const [couponMessage, setCouponMessage] = useState(""); // Message for coupon validation
 
   const handleOrder = async () => {
-    setLoading(true); // Set loading to true when submitting order
+    setLoading(true);
+    const totalPrice =
+      orderType === "delivery" ? cart.totalPrice + 30 : cart.totalPrice;
+    const discountedPrice = Math.floor(
+      totalPrice * (1 - discountPercentage / 100)
+    ); // Apply discount if any
+
     const order = {
       ...customer,
       products: cart.items,
-      totalPrice:
-        orderType === "delivery" ? cart.totalPrice + 30 : cart.totalPrice,
+      totalPrice: discountedPrice,
       status: "new",
       bagged: false,
       paid: false,
     };
+
     try {
       const response = await submitOrder(order);
+      setDiscountPercentage(0);
       const order_id = response.data.order_id;
       router.push(`/checkout/payment/${order_id}`);
-      // clearCart();
+      clearCart();
     } catch (error: AxiosError | any) {
       alert(error.response.data.error);
     } finally {
-      setLoading(false); // Reset loading state regardless of success or failure
+      setLoading(false);
+    }
+  };
+
+  const handleCouponCode = async () => {
+    try {
+      const response = await is_coupon_code_valid(couponCode);
+      if (response.data.is_coupon_code_valid) {
+        setDiscountPercentage(response.data.discount_percentage);
+        setCouponMessage(
+          `! ${response.data.discount_percentage}% קוד קופון תקין חסכת `
+        ); // Success message
+      } else {
+        setDiscountPercentage(0);
+        setCouponMessage("קוד קופון לא תקין"); // Error message
+      }
+    } catch (error: AxiosError | any) {
+      alert("Error validating coupon code.");
     }
   };
 
@@ -56,12 +83,40 @@ export default function OrderSummary() {
           <span className={styles.itemDescription}>תוספת משלוח</span>
         </div>
       )}
+
+      {discountPercentage !== 0 && (
+        <span className={styles.discountMessage}>
+          קוד קופון מומש : {discountPercentage}% הנחה
+        </span>
+      )}
       <div className={styles.totalPrice}>
         <span className={styles.amount}>
-          ₪ {orderType === "delivery" ? cart.totalPrice + 30 : cart.totalPrice}
+          ₪{" "}
+          {Math.floor(
+            (orderType === "delivery"
+              ? cart.totalPrice + 30
+              : cart.totalPrice) *
+              (1 - discountPercentage / 100)
+          )}
         </span>
+
         <span className={styles.description}>מחיר כולל לתשלום</span>
       </div>
+
+      <input
+        type="text"
+        value={couponCode}
+        onChange={(e) => setCouponCode(e.target.value)}
+        placeholder="הזן קוד קופון"
+        className={styles.couponInput}
+      />
+      <button onClick={handleCouponCode} className={styles.couponButton}>
+        ממש קוד קופון
+      </button>
+      {couponMessage && (
+        <div className={styles.couponMessage}>{couponMessage}</div>
+      )}
+
       {loading ? (
         <Loader />
       ) : (

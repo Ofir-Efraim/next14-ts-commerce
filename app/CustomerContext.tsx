@@ -7,6 +7,8 @@ type CustomerContextData = {
   orderType: OrderType;
   setCustomer: (cb: (value: Customer) => Customer) => void;
   setOrderType: (orderType: OrderType) => void;
+  discountPercentage : number;
+  setDiscountPercentage : (discountPercentage : number) => void;
   initializeCustomerContext: () => void;
 };
 
@@ -17,6 +19,8 @@ export const CustomerContext = createContext<CustomerContextData>({
     phoneNumber: "",
     email: "",
   },
+  discountPercentage : 0,
+  setDiscountPercentage : () => {},
   orderType: "",
   setCustomer: () => {},
   setOrderType: () => {},
@@ -38,6 +42,7 @@ export const CustomerProvider: React.FC<CustomerProviderProps> = ({
   });
 
   const [orderType, setOrderType] = useState<OrderType>("");
+  const [discountPercentage, setDiscountPercentage] = useState<number>(0);
 
   const initializeCustomerContext = () => {
     setCustomer({
@@ -47,6 +52,7 @@ export const CustomerProvider: React.FC<CustomerProviderProps> = ({
       email: "",
     });
     setOrderType("");
+    setDiscountPercentage(0);
   };
 
   return (
@@ -54,6 +60,8 @@ export const CustomerProvider: React.FC<CustomerProviderProps> = ({
       value={{
         customer,
         orderType,
+        discountPercentage,
+        setDiscountPercentage,
         setCustomer,
         setOrderType,
         initializeCustomerContext,

@@ -14,3 +14,6 @@ export const submitOrder = async (order: order) => {
 export const getOrder = async (orderId: string) => {
   return axios.get(server + `/get_order/${orderId}`);
 };
+export const is_coupon_code_valid = async(couponCode : string) =>{
+  return axios.post(server + "/is_coupon_code_valid", {coupon_code : couponCode})
+}
