@@ -85,18 +85,38 @@
   height: 100%;
 }
 .couponInput {
+  clear: both;
+  direction: rtl;
+  text-align: right;
+  margin: 15px 0;
+  font-size: 16px;
   padding: 15px 50px;
-  text-align: center;
+  width: 100%;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: 0.2s ease all;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  color: #a9a9a9;
 }
-.couponMessage{
-    text-align: right;
+
+.couponInput:focus {
+  border-color: cornflowerblue;
+}
+
+.couponMessage {
+  text-align: right;
 }
 .couponButton {
   padding: 15px 50px;
   text-align: center;
   direction: rtl;
   width: auto;
-  background: #0083ce ;
+  background: #0083ce;
   border: none;
   color: white;
   cursor: pointer;
@@ -108,9 +128,9 @@
   -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
 }
-.discountMessage{
-    font-size: 14px;
+.discountMessage {
+  font-size: 14px;
   font-weight: 400;
   color: #212529;
-    text-align: right;
+  text-align: right;
 }
