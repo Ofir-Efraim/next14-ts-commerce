@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { CartContext } from "@/app/CartContext";
 import { Close } from "@mui/icons-material";
 import { CustomerContext } from "@/app/CustomerContext";
 import { useRouter } from "next/navigation";
-import { submitOrder, is_coupon_code_valid } from "@/app/api"; // Import the function
+import { submitOrder, is_coupon_code_valid } from "@/app/api";
 import { AxiosError } from "axios";
 import Loader from "../Loader/Loader";
 
@@ -14,21 +14,23 @@ export default function OrderSummary() {
     useContext(CustomerContext);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [couponCode, setCouponCode] = useState(""); // State for coupon code
-  const [couponMessage, setCouponMessage] = useState(""); // Message for coupon validation
-
+  const [couponCode, setCouponCode] = useState("");
+  const [couponMessage, setCouponMessage] = useState("");
+  useEffect(() => {
+    return setDiscountPercentage(0);
+  }, [setDiscountPercentage]);
   const handleOrder = async () => {
     setLoading(true);
-    const totalPrice =
-      orderType === "delivery" ? cart.totalPrice + 30 : cart.totalPrice;
+    const totalProductPrice = cart.totalPrice;
+    const totalDeliveryPrice = orderType === "delivery" ? 30 : 0;
     const discountedPrice = Math.floor(
-      totalPrice * (1 - discountPercentage / 100)
-    ); // Apply discount if any
+      totalProductPrice * (1 - discountPercentage / 100)
+    );
 
     const order = {
       ...customer,
       products: cart.items,
-      totalPrice: discountedPrice,
+      totalPrice: discountedPrice + totalDeliveryPrice,
       status: "new",
       bagged: false,
       paid: false,
@@ -54,15 +56,22 @@ export default function OrderSummary() {
         setDiscountPercentage(response.data.discount_percentage);
         setCouponMessage(
           `! ${response.data.discount_percentage}% קוד קופון תקין חסכת `
-        ); // Success message
+        );
       } else {
         setDiscountPercentage(0);
-        setCouponMessage("קוד קופון לא תקין"); // Error message
+        setCouponMessage("קוד קופון לא תקין");
       }
     } catch (error: AxiosError | any) {
       alert("Error validating coupon code.");
     }
   };
+
+  const totalProductPrice = cart.totalPrice;
+  const totalDeliveryPrice = orderType === "delivery" ? 30 : 0;
+  const discountedPrice = Math.floor(
+    totalProductPrice * (1 - discountPercentage / 100)
+  );
+  const originalTotalPrice = totalProductPrice + totalDeliveryPrice;
 
   return (
     <div className={styles.detailsContainer}>
@@ -77,29 +86,35 @@ export default function OrderSummary() {
           </span>
         </div>
       ))}
+
+      {discountPercentage !== 0 && (
+        <div className={styles.discountMessage}>
+          <span className={styles.discountInfo}>
+            קוד קופון מומש : {discountPercentage}% הנחה על המוצרים
+          </span>
+        </div>
+      )}
       {orderType === "delivery" && (
         <div className={styles.item}>
           <span className={styles.itemPrice}>₪ 30</span>
           <span className={styles.itemDescription}>תוספת משלוח</span>
         </div>
       )}
-
-      {discountPercentage !== 0 && (
-        <span className={styles.discountMessage}>
-          קוד קופון מומש : {discountPercentage}% הנחה
-        </span>
-      )}
       <div className={styles.totalPrice}>
-        <span className={styles.amount}>
-          ₪{" "}
-          {Math.floor(
-            (orderType === "delivery"
-              ? cart.totalPrice + 30
-              : cart.totalPrice) *
-              (1 - discountPercentage / 100)
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          {discountPercentage !== 0 && (
+            <span
+              className={styles.amount}
+              style={{ textDecoration: "line-through" }}
+            >
+              ₪ {originalTotalPrice}
+            </span>
           )}
-        </span>
 
+          <span className={styles.amount}>
+            ₪ {discountedPrice + totalDeliveryPrice}
+          </span>
+        </div>
         <span className={styles.description}>מחיר כולל לתשלום</span>
       </div>
 
