@@ -41,7 +41,6 @@ export default function OrderSummary() {
       setDiscountPercentage(0);
       const order_id = response.data.order_id;
       router.push(`/checkout/payment/${order_id}`);
-      clearCart();
     } catch (error: AxiosError | any) {
       alert(error.response.data.error);
     } finally {
