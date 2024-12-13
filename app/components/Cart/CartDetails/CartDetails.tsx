@@ -23,7 +23,7 @@ export default function CartDetails() {
         <span className={styles.amount}>₪ {cart.totalPrice}</span>
         <span className={styles.description}>מחיר כולל לתשלום</span>
       </div>
-      <span className={styles.minimum}>מינימום הזמנה 60 ש"ח</span>
+      <span className={styles.minimum}>מינימום הזמנה 60 שקלים</span>
       <div className={styles.actions}>
         <Link
           style={{
