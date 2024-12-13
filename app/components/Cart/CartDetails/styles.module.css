@@ -30,6 +30,12 @@
   color: #212529;
   direction: rtl;
 }
+.minimum{
+  font-size: 18px;
+  color: #212529;
+  direction: rtl;
+  font-weight: 800;
+}
 .itemDescription {
   display: flex;
   gap: 5px;

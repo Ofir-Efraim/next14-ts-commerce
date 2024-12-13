@@ -23,13 +23,14 @@ export default function CartDetails() {
         <span className={styles.amount}>₪ {cart.totalPrice}</span>
         <span className={styles.description}>מחיר כולל לתשלום</span>
       </div>
+      <span className={styles.minimum}>מינימום הזמנה 60 ש"ח</span>
       <div className={styles.actions}>
         <Link
           style={{
             textDecoration: "none",
             textAlign: "center",
-            pointerEvents: cart.items.length === 0 ? "none" : "auto",
-            opacity: cart.items.length === 0 ? "0.6" : "1",
+            pointerEvents: cart.items.length === 0 || cart.totalPrice < 60 ? "none" : "auto",
+            opacity: cart.items.length === 0 || cart.totalPrice < 60 ? "0.6" : "1",
           }}
           className={styles.action}
           href={"/checkout"}
@@ -43,7 +44,7 @@ export default function CartDetails() {
         >
           חזרה למוצרים
         </Link>
-        <button className={styles.action} onClick={() => clearCart()}>
+        <button style={{cursor:"pointer"}} className={styles.action} onClick={() => clearCart()}>
           נקה עגלה
         </button>
       </div>
