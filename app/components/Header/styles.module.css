@@ -1,4 +1,4 @@
-.cart{
+.cart {
   color: #000;
 }
 .header {
@@ -11,11 +11,18 @@
   align-items: center;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
-  padding: 20px;
+  padding: 12px;
 }
 
 .logo {
   display: flex;
   gap: 5px;
   align-items: center;
+}
+.kosher {
+  white-space: nowrap;
+  max-width: 350px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  direction: rtl;
 }

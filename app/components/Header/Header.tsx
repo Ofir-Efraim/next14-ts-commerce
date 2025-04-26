@@ -10,6 +10,9 @@ export default function Header() {
       <Link href={"/cart"} className={styles.cart}>
         <CartIcon />
       </Link>
+      <Link href={"/kosher"} className={styles.kosher}>
+        כשר פרווה בהשגחת הרבנות הראשית ראשון לציון
+      </Link>
       <Link href={"/"} className={styles.logo}>
         <Image src={logo} alt="system-logo" width={60} height={60} priority />
       </Link>
