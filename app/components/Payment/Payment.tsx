@@ -21,7 +21,7 @@ export default function Payment({ order }: paymentProps) {
       <p className={styles.price}>הזמנתך היא על סך ₪{order?.totalPrice}</p>
       <div className={styles.payment}>
         <h3 className={styles.optionsMessage}>
-          לתשלום בביט או בפייבוקס ניתן ללחוץ על האייקונים הבאים
+          לתשלום בפייבוקס ניתן ללחוץ על האייקון הבא
         </h3>
         <div className={styles.paymentOptions}>
           {/* <a
