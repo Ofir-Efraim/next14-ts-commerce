@@ -24,7 +24,7 @@ export default function Payment({ order }: paymentProps) {
           לתשלום בביט או בפייבוקס ניתן ללחוץ על האייקונים הבאים
         </h3>
         <div className={styles.paymentOptions}>
-          <a
+          {/* <a
             rel="noopener noreferrer"
             target="_blank"
             className={`${styles.paymentButton} ${styles.bit}`}
@@ -37,7 +37,7 @@ export default function Payment({ order }: paymentProps) {
               src={bit}
               alt="bit"
             />
-          </a>
+          </a> */}
           <a
             rel="noopener noreferrer"
             target="_blank"
