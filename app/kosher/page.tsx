@@ -1,5 +1,5 @@
 import Image from "next/image";
-import KosherCertificate from "@assets/kosher.svg";
+import KosherCertificate from "@assets/kosher.jpeg";
 export default function Home() {
   return (
     <main>
