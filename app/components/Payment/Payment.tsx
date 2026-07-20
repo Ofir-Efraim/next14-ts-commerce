@@ -42,7 +42,7 @@ export default function Payment({ order }: paymentProps) {
             rel="noopener noreferrer"
             target="_blank"
             className={`${styles.paymentButton} ${styles.paybox}`}
-            href="https://links.payboxapp.com/5OaVqPdzZUb"
+            href="https://links.payboxapp.com/G2TeFvil0Ub"
           >
             <Image width={54} height={54} src={paybox} alt="paybox" />
           </a>
