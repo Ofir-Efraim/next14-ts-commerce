@@ -5,12 +5,17 @@ import CheckoutForm from "@/app/components/CheckoutForm/CheckoutForm";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 export default function Home() {
-  const { setOrderType } = useContext(CustomerContext);
+  const { setOrderType, setCustomer } = useContext(CustomerContext);
   const { cart } = useContext(CartContext);
   const router = useRouter();
   useEffect(() => {
     setOrderType("pickup");
-  }, []);
+    setCustomer((prev) => {
+      const next = { ...prev };
+      delete next.address;
+      return next;
+    });
+  }, [setCustomer, setOrderType]);
   useEffect(() => {
     if (cart.items.length === 0) {
       if (typeof window !== "undefined") {

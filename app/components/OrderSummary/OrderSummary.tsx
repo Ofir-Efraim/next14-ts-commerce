@@ -27,8 +27,10 @@ export default function OrderSummary() {
       totalProductPrice * (1 - discountPercentage / 100)
     );
 
+    const { address, pickupSpot, ...customerDetails } = customer;
     const order = {
-      ...customer,
+      ...customerDetails,
+      ...(orderType === "delivery" ? { address } : { pickupSpot }),
       products: cart.items,
       totalPrice: discountedPrice + totalDeliveryPrice,
       status: "new",
